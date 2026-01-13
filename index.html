@@ -45,11 +45,22 @@
 </div>
 
 <div class="box hidden" id="mainBox">
-  <h2>Write calmly during a fight</h2>
-  <textarea id="fightText" placeholder="I feel hurt because..."></textarea>
-  <button onclick="saveFight()">Save Message</button>
+<h2>Write calmly during a fight</h2>
 
-  <div id="fightMessages"></div>
+<!-- Emotion selector -->
+<label for="emotion">How are you feeling?</label>
+<select id="emotion">
+  <option value="Calm">Calm</option>
+  <option value="Hurt">Hurt</option>
+  <option value="Very Upset">Very Upset</option>
+</select>
+
+<!-- Message box -->
+<textarea id="fightText" placeholder="I feel hurt because..."></textarea>
+<button onclick="saveFight()">Save Message</button>
+
+<div id="fightMessages"></div>
+  
 
   <hr>
 
@@ -72,8 +83,7 @@
     }
   }
 
-  function saveFight() {
-    const text = document.getElementById("fightText").value;
+  function saveFight() {const text = document.getElementById("fightText").value;
     if (text.trim() === "") return;
 
     let fights = JSON.parse(localStorage.getItem("fights")) || [];
@@ -98,5 +108,6 @@
   }
 </script>
 
+    
 </body>
 </html>
